@@ -1,11 +1,47 @@
 package com.knoldus.service
 
 import com.knoldus.model._
-
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
-object Operations {
+/**
+ * Operations class contains all utility functions.
+ *
+ * @param parsingGeneric - constructor injection
+ */
+class Operations(parsingGeneric: ParsingGeneric) {
+
+  val userUrl = "https://jsonplaceholder.typicode.com/users"
+  val postUrl = "https://jsonplaceholder.typicode.com/posts"
+  val commentUrl = "https://jsonplaceholder.typicode.com/comments"
+
+  /**
+   * getFinalListUsers function returns parsed List of users
+   *
+   * @return - future wrapped list of users
+   */
+  def getFinalListUsers: Future[List[Users]] = {
+    parsingGeneric.parseData[Users](userUrl)
+  }
+
+  /**
+   * getFinalListPosts function returns parsed List of posts
+   *
+   * @return - future wrapped list of posts
+   */
+  def getFinalListPosts: Future[List[Posts]] = {
+    parsingGeneric.parseData[Posts](postUrl)
+  }
+
+  /**
+   * getFinalListComments function returns parsed List of comments
+   *
+   * @return - future wrapped list of comments
+   */
+  def getFinalListComments: Future[List[Comments]] = {
+    parsingGeneric.parseData[Comments](commentUrl)
+  }
+
   /**
    * This function is designed to model a case class UserWithPosts
    *
@@ -75,6 +111,5 @@ object Operations {
     userName
 
   }
-
 
 }

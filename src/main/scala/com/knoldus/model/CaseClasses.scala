@@ -15,4 +15,3 @@ case class Comments(postId: String, id: String, name: String, email: String, bod
 case class UsersWithPosts(user: Users, post: List[Posts])
 
 case class PostsWithComments(post: Posts, comments: List[Comments])
-

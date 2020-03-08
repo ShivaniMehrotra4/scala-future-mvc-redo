@@ -1,5 +1,6 @@
-package com.knoldus.service
+package com.knoldus.controllers
 
+import com.knoldus.service.Operations
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
